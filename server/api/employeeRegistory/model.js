@@ -5,11 +5,6 @@ const EmployeeSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    mobile: {
-        type: String,
-        required: true,
-        unique: true,
-    },
     email: {
         type: String,
         required: true,
@@ -21,30 +16,28 @@ const EmployeeSchema = mongoose.Schema({
             message: props => `${props.value} is not a valid email address!`
         }
     },
-    address: {
+    mobile: {
         type: String,
         required: true,
+        unique: true,
     },
-    date_of_joining: {
-        type: Date,
+    hire_date: {
+        type: String,
         default: Date.now(),
     },
-    employment_status: {
+    employee_status: {
         type: Boolean,
         default: true,
-        required: true,
-    },
-    employee_type: {
-        type: String,
         // required: true,
-        enum: ['Full-Time', 'Part-Time', 'Intern', 'In-Active'],
-        default: 'Full-Time',
+    },
+    designation: {
+        type: String,
+        required: true,
     },
     department: {
         type: String,
         required: true,
     },
-
     salary: {
         type: Number,
         required: true,
@@ -57,4 +50,4 @@ const EmployeeSchema = mongoose.Schema({
     // }
 })
 
-module.exports = mongoose.model('employees', EmployeeSchema, 'employee_details')
+module.exports = mongoose.model('employees', EmployeeSchema, 'employee_directory')
