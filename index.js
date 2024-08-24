@@ -13,6 +13,7 @@ const app = express();
 // middlewares
 app.use(cors());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //import routes
 const apiRoutes = require('./server/api').router;
