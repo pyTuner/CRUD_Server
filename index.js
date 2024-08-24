@@ -18,6 +18,8 @@ app.use(bodyParser.json());
 const apiRoutes = require('./server/api').router;
 app.use('/', apiRoutes);
 
+app.get('/', (req, res) => res.send('node server running'));
+
 
 // connect to db
 connectDB();
