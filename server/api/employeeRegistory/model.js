@@ -21,14 +21,19 @@ const EmployeeSchema = mongoose.Schema({
         required: true,
         unique: true,
     },
+    address: {
+        type: String,
+        required: false,
+    },
     hire_date: {
         type: String,
+        required: true,
         default: Date.now(),
     },
     employee_status: {
         type: Boolean,
         default: true,
-        // required: true,
+        required: true,
     },
     designation: {
         type: String,
