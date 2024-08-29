@@ -2,10 +2,10 @@ const employee = require('./model');
 
 // create a new entry of the employee
 const createEmployeeEntry = async (req, res) => {
-    const { name, mobile, email, address, department, salary } = req.body;
+    const { name, email, mobile, address, hire_date, employee_status, designation, department, salary } = req.body;
 
     try {
-        const newEmployee = new employee({ name, mobile, email, address, department, salary });
+        const newEmployee = new employee({ name, email, mobile, address, hire_date, employee_status, designation, department, salary });
         const savedEmployeeDetail = await newEmployee.save();
         res.json(savedEmployeeDetail);
     } catch (error) {
@@ -22,7 +22,7 @@ const getEmployeeDetails = async (req, res) => {
 
     try {
         const showEmployees = await employee.aggregate([{
-            $match: { employment_status: true }
+            $match: { employee_status: true }
         }]);
         res.json(showEmployees);
     } catch (error) {
