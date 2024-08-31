@@ -45,7 +45,8 @@ const updateEmployeeDetails = async (req, res) => {
 // Remove/delete employee details (soft elete)
 const removeEmployeeDetails = async (req, res) => {
     try {
-        const removeEmployeeDetails = await employee.findByIdAndUpdate(req.params.id, { employment_status: false }, { new: true });
+        const removeEmployeeDetails = await employee.findByIdAndUpdate(req.params.id, { employee_status: false }, { new: true });
+        console.log(req.body);
         res.json(removeEmployeeDetails);
     } catch (error) {
         res.status(500).json({ message: error.message });
