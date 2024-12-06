@@ -11,7 +11,10 @@ dotenv.config();
 const app = express();
 
 // middlewares
-app.use(cors());
+app.use(cors({
+    origin: ['http://testdomain.elliotsystemsonline.com', 'http://localhost:3000', 'https://iiot.elliotsystemsonline.com', 'http://localhost:8081/', 'https://localhost:8081/'], methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
